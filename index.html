@@ -13,7 +13,7 @@
 <div>
 
 	<input ng-model="author">
-		<textarea ng-model="saying"></textarea>
+		<input ng-model="saying"></input>
 			<button ng-click="submit()">Submit</button>
 
 
@@ -22,6 +22,7 @@
 	<div class="texts" ng-repeat="quote in quotes" ng-click="delete($index)">
 	<h1>{{quote.author}}</h1>
 	<h2>{{quote.saying}}</h2>
+	<h3>{{quote.stars.join("")}}</h3>
 
 	</div>
 
