@@ -5,55 +5,16 @@ angular.module('quotesApp').controller('mainController', ['$scope', '$localStora
 		$localStorage.$reset();
 		location.reload();
 	}
-	$scope.$storage = $localStorage.$default(
-
-		{
-    		counter: [
-
-		{
-			author: "Muhammad Ali",
-			saying: "I hated every minute of training, but I said, 'Don't quit. Suffer now and live the rest of your life as a champion.",
-			rating: 4
 	
-		},
-
-		{
-			author: "Maya Angelou",
-			saying: "Try to be a rainbow in someone's cloud.",
-			rating: 4
-		},
-
-		{
-			author: "Milton Berle",
-			saying: "If opportunity doesn't knock, build a door.",
-			rating: 3
-		},
-
-
-		{
-			author: "Francis of Assisi",
-			saying: "Start by doing what's necessary; then do what's possible; and suddenly you are doing the impossible.",
-			rating: 5
-			
-		},
-
-		{
-			author: "Ronald Reagan",
-			saying: "We can't help everyone, but everyone can help someone.",
-			rating: 5
-		},
-
-		]
-		});
 
 		$scope.quotes =[
 
-		{
-			author: "Muhammad Ali",
-			saying: "I hated every minute of training, but I said, 'Don't quit. Suffer now and live the rest of your life as a champion.",
-			rating: 4
+			{
+				author: "Muhammad Ali",
+				saying: "I hated every minute of training, but I said, 'Don't quit. Suffer now and live the rest of your life as a champion.",
+				rating: 4
 	
-		},
+			},
 
 		{
 			author: "Maya Angelou",
@@ -75,38 +36,44 @@ angular.module('quotesApp').controller('mainController', ['$scope', '$localStora
 			
 		},
 
-		{
-			author: "Ronald Reagan",
-			saying: "We can't help everyone, but everyone can help someone.",
-			rating: 5
-		},
-
+			{
+				author: "Ronald Reagan",
+				saying: "We can't help everyone, but everyone can help someone.",
+				rating: 5
+			},
 		]
+
+		$scope.$storage = $localStorage.$default(
+
+		{
+    		counter: 0,
+    		quotes: $scope.quotes
+		})
+
+
 
 		$scope.author = ""
 		$scope.saying = ""
 
 		$scope.submit = function(){
-			// var tempObj  = {
-			// 	author : $scope.author,
-			// 	saying : $scope.saying
-			// }
-			$localStorage.counter.push({
+			$localStorage.quotes.push({
 				author : $scope.author,
-				saying : $scope.saying
+				saying : $scope.saying,
+				rating: 2,
 			})
 		$scope.author = ""
 		$scope.saying = ""
+		console.log($localStorage.quotes)
 
 		}
 
 
 		$scope.rating =function(){
 
-			for (var i = 0; i < $localStorage.counter.length; i++) {
-				$localStorage.counter[i].stars = []
-					for (var j = 0; j < $localStorage.counter[i].rating; j++) {
-						$localStorage.counter[i].stars.push ('★')
+			for (var i = 0; i < $localStorage.quotes.length; i++) {
+				$localStorage.quotes[i].stars = []
+					for (var j = 0; j < $localStorage.quotes[i].rating; j++) {
+						$localStorage.quotes[i].stars.push ('★')
 					};
 			};
 		}
@@ -114,11 +81,11 @@ angular.module('quotesApp').controller('mainController', ['$scope', '$localStora
 	$scope.rating()
 
 		$scope.delete = function(index){
-			$localStorage.counter.splice(index,1)
+			$localStorage.quotes.splice(index,1)
 			console.log(index)
 		}
 
-		// $scope.delete()
+		
 
 }])
 
