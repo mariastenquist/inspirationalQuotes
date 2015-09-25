@@ -1,32 +1,59 @@
-<!DOCTYPE html>
+
 <html ng-app="quotesApp" lang="en">
 <head>
   <meta charset="utf-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1">
   <title>Inspirational Quotes</title>
   <link rel="stylesheet" type="text/css" href="main.css">
   <script type="text/javascript" src="https://cdnjs.cloudflare.com/ajax/libs/angular.js/1.5.0-beta.0/angular.min.js"></script>
   <script type="text/javascript" src="https://cdnjs.cloudflare.com/ajax/libs/ngStorage/0.3.9/ngStorage.min.js"></script>
 </head>
 
+
 <body ng-controller="mainController">
+<button ng-click="deletes()">delete</button>
+<div ng-repeat="myQuotes in $storage.counter">
+		<p>{{myQuotes.author}}</p>
+	</div>
+<!-- <button ng-click="$storage.counter = $storage.counter + 1">{{$storage.counter}}</button>
+ -->
+	<div>
+		<input class="inputs" ng-model="author">
+		<input class="inputs" ng-model="saying">
+		<button class="button" ng-click="submit()">Submit</button>
+	
 
-<div>
-
-	<input ng-model="author">
-		<input ng-model="saying"></input>
-			<button ng-click="submit()">Submit</button>
+	
 
 
+<div class="lascosas">
+	<div class="texts" ng-repeat="quote in quotes | orderBy:'-rating' " ng-click="delete($index)">
+	<h2>{{quote.author}}</h2>
+	<h4>{{quote.saying}}</h4>
+	<h3>{{quote.stars.join("")}}</h3>
+	</div>
 </div>
 
-	<div class="texts" ng-repeat="quote in quotes" ng-click="delete($index)">
-	<h1>{{quote.author}}</h1>
-	<h2>{{quote.saying}}</h2>
-	<h3>{{quote.stars.join("")}}</h3>
+<div class="container2"> 
+<p> Links to Quote Websites</p>
+	<ul>
+		<li> <a href = "http://www.brainyquote.com/quotes/topics/topic_inspirational.html#hTdWZWCg4x9jCkJK.99">Quote 1</a></li>
+		<li> <a href = "http://www.brainyquote.com/quotes/topics/topic_inspirational.html#hTdWZWCg4x9jCkJK.99">Quote 2</a></li>
+		<li> <a href = "http://www.brainyquote.com/quotes/topics/topic_inspirational.html#hTdWZWCg4x9jCkJK.99">Quote 3</a></li>
+		<li> <a href = "http://www.brainyquote.com/quotes/topics/topic_inspirational.html#hTdWZWCg4x9jCkJK.99">Quote 4</a></li>
+		<li> <a href = "http://www.brainyquote.com/quotes/topics/topic_inspirational.html#hTdWZWCg4x9jCkJK.99">Quote 5</a></li>
+		</ul>
+</div>
 
-	</div>
 
 
+
+
+
+  <script src="ng-rating/js/ng-rating.js"></script>
 	<script src="main.js" type="text/javascript"></script>
-</body
+
+
+</body>
 </html>
+

@@ -1,4 +1,55 @@
+.lascosas{
+	text-align: center;
+	width: auto;
+	margin: center;
+	font-family: Courier, sans-serif;
+}
+
+
 .texts h3{
-color: violet;
+color: red;
+
+
+}
+
+.texts h2{
+	color: Yellow;
+}
+
+.texts h4{
+	color: gray;
+}
+
+body{
+	width: 100vw;
+	background-image: url("tibet.jpg");  
+	background-attachment: scroll;
+    background-size: cover;
+    position: relative;
+
+
+}
+
+.container2{
+
+	float: right;
+	clear: left;
+	background-color: navajowhite;
+	border-radius: 15px;
+	margin: 50px;
+	padding: 30px;
+}
+
+.button{
+	padding: 10px;
+	background-color: yellow;
+	border-radius: 5px;
+	margin: 10px;
+}
+
+.inputs{
+	padding: 10px;
+	background-color: red;
+	border-radius: 5px;
 
 }
